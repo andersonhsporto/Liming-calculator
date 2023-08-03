@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DataInterface } from '../../data-interface';
-import { CalcServiceService } from '../../service/calc-service.service';
+import { DataInterface } from '../../../data-interface';
+import { DataService } from '../../../service/saturation /data.service';
 
 @Component({
   selector: 'app-calc-input',
   templateUrl: './calc-input.component.html',
-  styleUrls: ['./calc-input.component.css']
+  styleUrls: ['./calc-input.component.css'],
 })
 export class CalcInputComponent {
   calcForm = new FormGroup({
@@ -16,22 +16,28 @@ export class CalcInputComponent {
     inputPRNT: new FormControl('', Validators.required),
   });
 
-  constructor(private calcServiceService : CalcServiceService ) {
+  constructor(private data: DataService) {
 
   }
 
-  onSubmit():void {
-    console.log('submit');
-    console.log(this.calcForm.value.inputCTC);
+  ngOnInit(): void {
+    this.data.currentCTC.subscribe(
+      message => this.calcForm.value.inputCTC = message
+    );
+  }
+
+  onSubmit(): void {
     this.validateAllFormFields(this.calcForm);
-    console.log(this.calcServiceService.getLimingNecessity(this.formToInterface()))
+    console.log(this.data.getLimingNecessity(this.formToInterface()));
+    this.data.changeCTC(this.calcForm.value.inputCTC);
   }
 
   validateAllFormFields(formGroup: FormGroup): void {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
+
       if (control instanceof FormControl) {
-        control.markAsTouched({onlySelf: true});
+        control.markAsTouched({ onlySelf: true });
       } else if (control instanceof FormGroup) {
         this.validateAllFormFields(control);
       }

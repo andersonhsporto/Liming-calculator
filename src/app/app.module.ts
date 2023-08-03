@@ -6,9 +6,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './layout/nav/navbar/navbar.component';
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {NgOptimizedImage} from "@angular/common";
-import { CalculatorComponent } from './layout/nav/calculator/calculator.component';
-import { CalcInputComponent } from './shared/component/calc-input/calc-input.component';
+import { CalculatorComponent } from './layout/calculator/calculator.component';
+import { CalcInputComponent } from './shared/component/saturation/calc-input/calc-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DataSaturationComponent } from './shared/component/saturation/data-saturation/data-saturation.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     CalculatorComponent,
     CalcInputComponent,
+    DataSaturationComponent,
   ],
   imports: [
     BrowserModule,
