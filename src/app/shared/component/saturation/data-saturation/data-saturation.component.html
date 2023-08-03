@@ -1,0 +1,10 @@
+  <div>
+    Método da saturação por bases
+  </div>
+  <div>
+    NC (ton/ha) = (V2 - V1) x CTC / PRNT
+  </div>
+<!--  if limingNeeded != NaN && != ""-->
+  <div *ngIf='limingNeeded != -1 && !isNaN(limingNeeded)'>
+    {{limingNeeded}} = ({{v2}} - {{v1}}) x {{ctc}} / {{prnt}}
+  </div>
