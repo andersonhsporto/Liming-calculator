@@ -10,10 +10,10 @@ import { DataService } from '../../../service/saturation /data.service';
 })
 export class CalcInputComponent {
   calcForm = new FormGroup({
-    inputCTC: new FormControl('', Validators.required),
-    inputV1: new FormControl('', Validators.required),
-    inputV2: new FormControl('', Validators.required),
-    inputPRNT: new FormControl('', Validators.required),
+    inputCTC: new FormControl('', Validators.required || Validators.min(0)),
+    inputV1: new FormControl('', Validators.required || Validators.min(0)),
+    inputV2: new FormControl('', Validators.required || Validators.min(0)),
+    inputPRNT: new FormControl('', Validators.required || Validators.min(0)),
   });
 
   constructor(private data: DataService) {
@@ -22,13 +22,15 @@ export class CalcInputComponent {
 
   ngOnInit(): void {
     this.data.currentCTC.subscribe(
-      message => this.calcForm.value.inputCTC = message
+      message => this.calcForm.value.inputCTC = message,
     );
   }
 
   onSubmit(): void {
     this.validateAllFormFields(this.calcForm);
-    this.data.getLimingNecessity(this.formToInterface());
+    if (this.calcForm.valid) {
+      this.data.getLimingNecessity(this.formToInterface());
+    }
   }
 
   validateAllFormFields(formGroup: FormGroup): void {
@@ -37,6 +39,10 @@ export class CalcInputComponent {
 
       if (control instanceof FormControl) {
         control.markAsTouched({ onlySelf: true });
+
+        if (control.value < 0) {
+          control.setErrors({ incorrect: true });
+        }
       } else if (control instanceof FormGroup) {
         this.validateAllFormFields(control);
       }
