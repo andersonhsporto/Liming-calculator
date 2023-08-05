@@ -1,10 +1,36 @@
+<div class='col-md-12'>
   <div>
     Método da saturação por bases
   </div>
   <div>
     NC (ton/ha) = (V2 - V1) x CTC / PRNT
   </div>
-<!--  if limingNeeded != NaN && != ""-->
+  <!--  if limingNeeded != NaN && != ""-->
+  <div>
+    <p>
+      O método baseado na elevação da saturação por bases tem como princípio a relação excedente entre o pH e a
+      saturação
+      por bases do solo.
+    </p>
+  </div>
+  <div class='description' style='white-space: nowrap;'>
+    <p>
+      <span style='font-weight: bold'>NC: </span> Necessidade de calagem (ton/ha)
+    </p>
+    <p>
+      <span style='font-weight: bold'>CTC: </span> Capacidade de troca catiônica (cmolc/dm³)
+    </p>
+    <p>
+      <span style='font-weight: bold'>V1: </span> Saturação por bases atual (%)
+    </p>
+    <p>
+      <span style='font-weight: bold'>V2: </span> Saturação por bases desejada (%)
+    </p>
+    <p>
+      <span style='font-weight: bold'>PRNT: </span> Poder relativo de neutralização total (%)
+    </p>
+  </div>
   <div *ngIf='limingNeeded != -1 && !isNaN(limingNeeded)'>
     {{limingNeeded}} = ({{v2}} - {{v1}}) x {{ctc}} / {{prnt}}
   </div>
+</div>
