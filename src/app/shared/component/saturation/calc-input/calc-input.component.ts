@@ -28,8 +28,7 @@ export class CalcInputComponent {
 
   onSubmit(): void {
     this.validateAllFormFields(this.calcForm);
-    console.log(this.data.getLimingNecessity(this.formToInterface()));
-    this.data.changeCTC(this.calcForm.value.inputCTC);
+    this.data.getLimingNecessity(this.formToInterface());
   }
 
   validateAllFormFields(formGroup: FormGroup): void {

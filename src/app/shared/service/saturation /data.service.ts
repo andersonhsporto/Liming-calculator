@@ -22,22 +22,6 @@ export class DataService {
   constructor() {
   }
 
-  changeCTC(msg?: any): void  {
-    if (msg === undefined) {
-      msg = "";
-    }
-    this.ctcSource.next(msg);
-  }
-
-  changeV(v1: string, v2: string): void {
-    this.v1Source.next(v1);
-    this.v2Source.next(v2);
-  }
-
-  changePRNT(prnt: string): void {
-    this.prntSource.next(prnt);
-  }
-
   // NC (ton/ha) = (V2 - V1) x CTC / PRNT
   getLimingNecessity(dataInterface: DataInterface) {
     const v1: number = dataInterface.inputV1;
@@ -45,8 +29,25 @@ export class DataService {
     const ctc: number = dataInterface.inputCTC;
     const prnt: number = dataInterface.inputPRNT;
 
+    this.changeCTC(ctc);
+    this.changeV(v1, v2);
+    this.changePRNT(prnt);
     this.limingNecessitySource.next((v2 - v1) * ctc / prnt);
-    return (v2 - v1) * ctc / prnt;
   }
 
+  private changeCTC(msg?: any): void  {
+    if (msg === undefined) {
+      msg = "";
+    }
+    this.ctcSource.next(msg);
+  }
+
+  private changeV(v1: number, v2: number): void {
+    this.v1Source.next(String(v1));
+    this.v2Source.next(String(v2));
+  }
+
+  private changePRNT(prnt: number): void {
+    this.prntSource.next(String(prnt));
+  }
 }
