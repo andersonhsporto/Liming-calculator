@@ -1,0 +1,32 @@
+.container {
+  text-align: center;
+  background: #fafafa;
+  width: 100%;
+}
+
+
+.calc-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 10px;
+  align-items: center;
+  align-content: space-between;
+  flex-wrap: wrap;
+  text-align: center;
+  /*padding-left: 15px;*/
+  /*padding-right: 15px;*/
+  contain: paint;
+}
+
+.calc-container > app-calc-input {
+  align-self: inherit;
+  width: 200px;
+  flex-grow: 1;
+}
+
+.calc-container > app-data-saturation {
+  text-align: center;
+  width: 200px;
+  flex-grow: 2;
+}

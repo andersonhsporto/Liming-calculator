@@ -1,75 +1,82 @@
-<div class="form-body">
-<form (ngSubmit)="onSubmit()" [formGroup]="calcForm" class="client-form requires-validation">
-<table>
-  <thead>
-  <tr>
-    <th scope='col'>Parâmetro</th>
-    <th scope='col'>Unidade</th>
-    <th scope='col'>Dados</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>CTC</td>
-    <td>
-      <i>
-        <sup>3</sup>
-        cmol
-        <sub>c</sub>
-        / dm
-      </i>
-    </td>
-    <td>
-      <input class='form-control' formControlName='inputCTC' id='ctc' name='ctc'
-             required type='text'>
-    </td>
-  </tr>
-  <tr>
-    <td>V<sub>1</sub></td>
-    <td>
-      <i>
-        %
-      </i>
-    </td>
-    <td>
-      <input class='form-control' formControlName='inputV1' id='v1' name='v1'
-             required type='text'>
-    </td>
-  </tr>
-  <tr>
-    <td>V<sub>2</sub></td>
-    <td>
-      <i>
-        %
-      </i>
-    </td>
-    <td>
-      <input class='form-control' formControlName='inputV2' id='v2' name='v2'
-             required type='text'>
-    </td>
-  </tr>
-  <tr>
-    <td>PRNT</td>
-    <td>
-      <i>
-        %
-      </i>
-    </td>
-    <td>
-      <input class='form-control'
-             formControlName='inputPRNT'
-             id='prnt'
-             name='prnt'
-             required type='text'>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div class='form-body'>
+  <form (ngSubmit)='onSubmit()' [formGroup]='calcForm' class='client-form requires-validation'>
+    <div class='container table-responsive py-2'>
+      <table class='table table-bordered table-hover'>
+        <thead>
+        <tr>
+          <th scope='col'>Parâmetro</th>
+          <th scope='col'>Unidade</th>
+          <th scope='col'>Dados</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+          <td>CTC</td>
+          <td class='cmol'>
+            <i>
+              <sup>3</sup>
+              cmol
+              <sub>c</sub>
+              / dm
+            </i>
+          </td>
+          <td>
+            <input class='form-control' formControlName='inputCTC' id='ctc' name='ctc'
+                   required type='text'>
+          </td>
+        </tr>
+        <tr>
+          <td>V<sub>1</sub></td>
+          <td>
+            <i>
+              %
+            </i>
+          </td>
+          <td>
+            <input class='form-control' formControlName='inputV1' id='v1' name='v1'
+                   required type='text'>
+          </td>
+        </tr>
+        <tr>
+          <td>V<sub>2</sub></td>
+          <td>
+            <i>
+              %
+            </i>
+          </td>
+          <td>
+            <input class='form-control' formControlName='inputV2' id='v2' name='v2'
+                   required type='text'>
+          </td>
+        </tr>
+        <tr>
+          <td>PRNT</td>
+          <td>
+            <i>
+              %
+            </i>
+          </td>
+          <td>
+            <input class='form-control'
+                   formControlName='inputPRNT'
+                   id='prnt'
+                   name='prnt'
+                   required type='text'>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 
-<div class='form-button mt-3'>
-  <button class='btn btn-primary' id='submit' type='submit'>Calcular</button>
-</div>
+    <div class='form-button'>
+      <button class='btn btn-primary'
+              id='submit'
+              type='submit'
+              style='font-weight: bold'
 
-</form>
+      >Calcular</button>
+    </div>
+
+  </form>
 </div>
 

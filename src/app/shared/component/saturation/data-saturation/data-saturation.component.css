@@ -1,0 +1,7 @@
+.container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+  contain: paint;
+  font-size: 14px;
+}

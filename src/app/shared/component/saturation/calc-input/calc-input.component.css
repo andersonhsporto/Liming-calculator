@@ -1,0 +1,26 @@
+.form-body {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+  contain: paint;
+  font-size: 14px;
+}
+
+.cmol {
+  width: 30%;
+}
+
+tbody > tr > td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+tbody > tr > td > input {
+  text-align: center;
+  justify-content: center;
+}
+
+.form-button {
+  padding-bottom: 25px;
+}
+
