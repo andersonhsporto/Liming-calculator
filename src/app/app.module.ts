@@ -10,6 +10,7 @@ import { CalculatorComponent } from './layout/calculator/calculator.component';
 import { CalcInputComponent } from './shared/component/saturation/calc-input/calc-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DataSaturationComponent } from './shared/component/saturation/data-saturation/data-saturation.component';
+import { DescriptionSaturationComponent } from './shared/component/saturation/description-saturation/description-saturation.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { DataSaturationComponent } from './shared/component/saturation/data-satu
     CalculatorComponent,
     CalcInputComponent,
     DataSaturationComponent,
+    DescriptionSaturationComponent,
   ],
   imports: [
     BrowserModule,
